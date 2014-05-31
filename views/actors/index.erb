@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movies Database</title>
+</head>
+<body>
+  <h1>Movies Database</h1>
+  <ul>
+    <% @actors.each do |actor| %>
+      <li><a href="<%= "/actors/#{actor["id"]} "%>"><%= "#{actor["name"]}" %></a></li>
+    <% end %>
+  </ul>
+  <button><a href="/">Home</a></button>
+</body>
+</html>

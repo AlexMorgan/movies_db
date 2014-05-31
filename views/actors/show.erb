@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movies Database</title>
+  <style>
+  table,th,td
+  {
+  border:1px solid black;
+  border-collapse:collapse;
+  }
+  th,td
+  {
+  padding:5px;
+  }
+  th
+  {
+  text-align:left;
+  }
+  </style>
+</head>
+<body>
+  <h1><%= @actor_details[0]["name"] %></h1>
+  <ul>
+
+  </ul>
+  <table>
+    <tr>
+      <th>Movie</th>
+      <th>Character</th>
+      <th>Year</th>
+    </tr>
+    <% @actor_details.each do |detail| %>
+    <tr>
+        <td><a href="<%= "/movies/#{detail["movie_id"]}" %>"><%= "#{detail["title"]}" %></a></td>
+        <!-- Extra logic, if the detail is not filled in it returns 'N/A' -->
+        <% if detail["character"] != nil%>
+          <td><%= "#{detail["character"]}" %></td>
+        <% else %>
+          <td><%= "N/A" %></td>
+        <% end %>
+        <td><%= "#{detail["year"]}" %></td>
+    </tr>
+    <% end %>
+  </table>
+  <button><a href="/">Home</a></button>
+</body>
+</html>

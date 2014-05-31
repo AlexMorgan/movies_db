@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movies Database</title>
+  <style>
+  table,th,td
+  {
+  border:1px solid black;
+  border-collapse:collapse;
+  }
+  th,td
+  {
+  padding:5px;
+  }
+  th
+  {
+  text-align:left;
+  }
+  </style>
+</head>
+<body>
+  <h1><%= "#{@movie_detail[0]["title"]} - #{@movie_detail[0]["year"]} - #{@movie_detail[0]["genre"]} - #{@movie_detail[0]["studio_name"]}" %></h1>
+  <ul>
+
+  </ul>
+  <table>
+    <tr>
+      <th>Actors</th>
+      <th>Characters</th>
+    </tr>
+    <% @movie_detail.each do |detail| %>
+    <tr>
+      <td> <a href="<%= "/actors/#{detail["actor_id"]}" %>"><%= detail["actor"] %></a></td>
+      <% if detail["character"] != nil %>
+        <td><%= detail["character"] %></td>
+      <% else %>
+        <td>N/A</td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+  <button><a href="/">Home</a></button>
+</body>
+</html>
